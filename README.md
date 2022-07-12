@@ -20,7 +20,7 @@ The React UI starts on port `3000` and expects an API server on port `5000` (sav
 
 <br />
 
-![React Nodejs Berry - Open-source full-stack seed project crafted by CodedThemes and AppSeed.](https://github.com/senior-developer1019/admin-dashboard-react/blob/main/public/screenshot.gif)
+![React Nodejs Berry - Open-source full-stack seed project crafted by CodedThemes and AppSeed.](https://github.com/senior-developer1019/admin-dashboard-react/blob/master/public/screenshot.gif)
 
 
 ## How to use it
