@@ -105,41 +105,50 @@ const RestLogin = (props, { ...others }) => {
                     password: Yup.string().max(255).required('Password is required')
                 })}
                 onSubmit={(values, { setErrors, setStatus, setSubmitting }) => {
-                    try {
-                        axios
-                            .post( configData.API_SERVER + 'users/login', {
-                                password: values.password,
-                                email: values.email
-                            })
-                            .then(function (response) {
-                                if (response.data.success) {
-                                    console.log(response.data);
-                                    dispatcher({
-                                        type: ACCOUNT_INITIALIZE,
-                                        payload: { isLoggedIn: true, user: response.data.user, token: response.data.token }
-                                    });
-                                    if (scriptedRef.current) {
-                                        setStatus({ success: true });
-                                        setSubmitting(false);
-                                    }
-                                } else {
-                                    setStatus({ success: false });
-                                    setErrors({ submit: response.data.msg });
-                                    setSubmitting(false);
-                                }
-                            })
-                            .catch(function (error) {
-                                setStatus({ success: false });
-                                setErrors({ submit: error.response.data.msg });
-                                setSubmitting(false);
-                            });
-                    } catch (err) {
-                        console.error(err);
-                        if (scriptedRef.current) {
-                            setStatus({ success: false });
-                            setErrors({ submit: err.message });
-                            setSubmitting(false);
-                        }
+                    // try {
+                    //     axios
+                    //         .post( configData.API_SERVER + 'users/login', {
+                    //             password: values.password,
+                    //             email: values.email
+                    //         })
+                    //         .then(function (response) {
+                    //             if (response.data.success) {
+                    //                 console.log(response.data);
+                    //                 dispatcher({
+                    //                     type: ACCOUNT_INITIALIZE,
+                    //                     payload: { isLoggedIn: true, user: response.data.user, token: response.data.token }
+                    //                 });
+                    //                 if (scriptedRef.current) {
+                    //                     setStatus({ success: true });
+                    //                     setSubmitting(false);
+                    //                 }
+                    //             } else {
+                    //                 setStatus({ success: false });
+                    //                 setErrors({ submit: response.data.msg });
+                    //                 setSubmitting(false);
+                    //             }
+                    //         })
+                    //         .catch(function (error) {
+                    //             setStatus({ success: false });
+                    //             setErrors({ submit: error.response.data.msg });
+                    //             setSubmitting(false);
+                    //         });
+                    // } catch (err) {
+                    //     console.error(err);
+                    //     if (scriptedRef.current) {
+                    //         setStatus({ success: false });
+                    //         setErrors({ submit: err.message });
+                    //         setSubmitting(false);
+                    //     }
+                    // }
+                    
+                    dispatcher({
+                        type: ACCOUNT_INITIALIZE,
+                        payload: { isLoggedIn: true, user: "Admin", token: "response.data.token.12345667890" }
+                    });
+                    if (scriptedRef.current) {
+                        setStatus({ success: true });
+                        setSubmitting(false);
                     }
                 }}
             >
